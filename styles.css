@@ -1,0 +1,673 @@
+/* Style Sheet - Building Blocks of Web Page */
+
+
+/* Variables ====================== */
+
+/* font face - icon font
+@font-face {
+	font-family: 'holberton_school-icon';
+	src: url('fonts/holberton_school-icon.eot');
+	src: url('fonts/holberton_school-icon.eot?#iefix') format('embedded-opentype'),
+			 url('fonts/holberton_school-icon.woff') format('woff'),
+			 url('fonts/holberton_school-icon.ttf') format('truetype'),
+			 url('fonts/holberton_school-icon.svg#holberton_school-icon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+} */
+
+
+:root {
+	/* color variables */
+	
+	--color-primary:  #FF6565;
+	--color-black:  #090909;
+	--color-white: #ffffff;
+	--color-navy:  #071629;
+
+	/* font variables */
+
+	--font-size-small: 12px;
+	--font-size-medium: 16px;
+	--font-size-large: 24px;
+	--font-size-xlarge: 32px;
+	--font-size-button: 14px;
+	--font-family-primary: 'Source Sans Pro', 'Lato', sans-serif;
+}
+
+
+
+/* BODY ====================== */
+	body {
+		width: 100vw;
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		margin: 0;
+		padding: 0;
+	}
+
+/* HEADER ================== */
+	header {
+		width: 100%;
+		background: transparent;
+		position: relative;
+		color: var(--color-white);
+		background-image: url(images/headphones_hero_1.jpg);
+		background-size: cover;
+		font-family: var(--font-family-primary);
+	}
+
+	/* does not show menu button on normal view */
+	#menu-toggle, #menu-toggle-btn {
+		display: none;
+		position: absolute;
+	}
+
+
+	#header-logo {
+		width: 160px;
+		height: auto;
+	}
+
+
+	header .menu-section {
+		justify-content: space-between;
+		align-content: space-between;
+		padding: 2rem;
+		flex-wrap: wrap;
+	}
+
+	header .menu-section nav {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-content: space-between;
+		/* position: relative; */
+	}
+
+	#menu-links {
+		display: inline-flex;
+		margin: auto 0;
+		padding: 0;
+		font-size: var(--font-size-small);
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	a {
+		color: inherit;
+		transition: color 0.1s ease;
+		text-decoration: none;
+	}
+
+	a:hover, a:active {
+		color: var(--color-primary);
+		text-decoration: none;
+	}
+
+	#menu-links li {
+		margin: auto 1.25rem;
+		list-style-type: none;
+		text-decoration: none;
+	}
+	/* Header - Hero Section =============== */
+	.hero-section {
+		width: 75%;
+		text-align: center;
+		margin: 20rem auto 0 auto;
+	}
+
+	.hero-title {
+		font-size: var(--font-size-xlarge);
+		position: relative;
+		font-weight: 700;
+	}
+
+	.hero-subtitle {
+		display: block;
+		/* width: 279px; */
+		font-size: var(--font-size-medium);
+		position: relative;
+		margin: 0.25rem 0;
+		font-weight: 600;
+	}
+
+	.hero-section p {
+		margin: 2rem 0;
+		/* width: 335px; */
+		line-height: 1.5;
+		font-size: var(--font-size-medium);
+		font-weight: 400;
+	}
+
+	.hero-button {
+		font-size: var(--font-size-button);
+		color: var(--color-white);
+		background: var(--color-primary);
+		border: none;
+		padding: 1rem 2rem;
+		font-weight: 700;
+		border-radius: 24px;
+		margin: 1rem auto;
+		cursor: pointer;
+		box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
+		opacity: 1;
+		transition: opacity 0.2s ease;
+	}
+
+	.hero-button:hover, .hero-button:active {
+		opacity: 0.9;
+	}
+
+	/* Responsive Design Styling for Menu ==== */
+
+	/* Up to full size */
+	@media (max-width: 1200px) {
+		header {
+			background-position: 42% 50%;
+		}
+	}
+
+	/* Up to 480px (mobile) */
+	@media (max-width: 480px) { 
+		header {
+			background-position: 44% 50%;
+		}
+
+		/* Menu Button ===================*/
+		
+		/* middle line */
+		#menu-toggle-btn {
+			background: var(--color-white);
+			height: 2px;
+			width: 13px;
+			position: absolute;
+			left: 1rem;
+			top: 3rem;
+			display: block;
+		}
+
+		/* top line */
+		#menu-toggle-btn::before {
+			content: "";
+			background: var(--color-white);
+			height: 2px;
+			width: 23px;
+			position: relative;
+			top: -0.4rem;
+			display: block;
+			transition: all 0.2s ease;
+		}
+
+		/* botton line */
+		#menu-toggle-btn::after {
+			content: "";
+			background: var(--color-white);
+			height: 2px;
+			width: 23px;
+			position: relative;
+			top: 0.3rem;
+			display: block;
+			transition: all 0.2s ease;
+		}
+
+
+		/* Nav Bar Alignment */
+		.menu-section nav {
+			margin-left: -5px;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		#header-logo {
+			width: 50%;
+			height: auto;
+			align-self: center;
+		}
+		/* Drop Down Menu =============== */
+
+		.menu-nav #menu-links {
+			/* display: none; start with ul hidden */
+			max-height: 0;
+			/* transition: max-height 1s ease-out; */
+			overflow: hidden;
+			/* margin-bottom: 20px; */
+			/* transition:  max-height 0.4s ease-in-out; */ 
+		}
+		
+		/* space out the links */
+		.menu-nav #menu-links li {
+			width: 100%;
+			margin: 0.5rem auto 10px;
+		}
+
+		/* Once menu toggle input is checked -> open drop down menu */
+		#menu-toggle:checked ~ #menu-links {
+			/* display: block; */
+			width: 100%;
+			flex-direction: column;
+			margin: 1rem auto auto;
+			text-align: center;
+			font-weight: bold;
+			font-size: var(--font-size-large);
+			max-height: 140px;
+			transition: max-height 0.25s ease-in-out;
+		}
+
+		/* #menu-toggle:checked ~ #menu-links a {
+			/* background-color: #FF6565;
+			/* margin: 1rem auto 8rem auto;
+			border-radius: 15%;
+			padding-left: 4px;
+			padding-right: 4px;
+			padding-top: 2px;
+			padding-bottom: 45px;
+		} */
+
+		/* Turning menu button into X button once toggled */
+		#menu-toggle:checked ~ #menu-toggle-btn {
+			background: transparent;
+		}
+
+		#menu-toggle:checked ~ #menu-toggle-btn::before {
+			background: var(--color-white);
+			transform: rotate(135deg);
+			top: 3px;
+			margin: auto;
+		}
+
+		#menu-toggle:checked ~ #menu-toggle-btn::after {
+			background: var(--color-white);
+			width: 23px;
+			transform: rotate(-135deg);
+			top: 1px;
+			margin: auto;
+		}
+
+		/* Hero Alignment ===== */
+		.hero-section {
+			margin: 14rem auto 0 auto;
+			width: 100%;
+			/* margin-top: auto; */
+		}
+
+
+	}
+
+	/* Main Section ========================== */
+
+	main {
+		background: transparent;
+		display: flex;
+		flex-direction: column;
+		font-family: var(--font-family-primary);
+		width: 100%;
+		position: relative;
+	}
+
+	/* Title and Subtitle */
+
+	.section-what-we-do {
+		background: var(--color-white);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		color: var(--color-navy);
+		padding-top: 110px;
+		width: 100%;
+		height: auto;
+		margin-bottom: 2rem;
+		overflow: auto;
+	}
+
+	.wwd-text-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		/* flex-wrap: wrap; */
+		padding: 4rem;
+	}
+
+	/* .wwd-text-container p {
+		width: 637px;
+		height: 104px;
+	} */
+
+	#wwd-title {
+		/* display: none; */
+		font-size: var(--font-size-xlarge);
+		text-align: center;
+		margin: auto;
+		font-weight: 600;
+		width: 100%;
+	}
+
+	#wwd-sub-title {
+		font-size: var(--font-size-medium);
+		text-align: center;
+		margin: 2rem auto;
+		width: 65%;
+	}
+
+	/* Card Grid */
+	.wwd-card-container {
+		width: 100%;
+		margin: 2rem 0;
+		display: grid;
+		grid-template-rows: 100%;
+		grid-template-columns: 25% 25% 25% 25%;
+		text-align: center;
+	}
+
+	.wwd-card-container .wwd-card {
+		margin: 0.5rem;
+	}
+
+	/* .icon {
+		font-family: 'holberton_school-icon';
+		font-size: x-large;
+		color: var(--color-primary);
+	} */
+
+	.wwd-card h3 {
+		font-size: var(--font-size-large);
+		color: var(--color-navy);
+	}
+
+	.wwd-card p {
+		font-size: var(--font-size-button);
+		color: var(--color-black);
+		/* max-width: 207px; */
+		margin: 0;
+		padding: 0;
+	}
+
+
+/* What we do - Responsive Design ========= */
+
+	/* Tablet ====== */	
+	@media (max-width: 767px) {
+		.wwd-card-container {
+			grid-template-rows: 50% 50%;
+			grid-template-columns: 50% 50%;
+		}
+
+		.wwd-card-container .wwd-card {
+			margin: 1rem;
+		}
+
+		.section-what-we-do p {
+			width: 95%;
+		}
+	}
+	/* Mobile =========== */
+	@media (max-width: 480px) {
+		.section-what-we-do {
+			padding: 4rem 2.5rem;
+			margin-bottom: 2rem;
+		}
+
+		.section-what-we-do p {
+			width: 100%;
+		}
+
+		.wwd-card-container {
+			grid-template-rows: 25% 25% 25% 25%;
+			grid-template-columns: 100%;
+		}
+
+		.wwd-card-container p {
+			width: 70%;
+			margin: auto;
+		}
+	}
+
+		/* Results Section ========= */
+
+		/* This is where I leave you because I cannot code anymore lol. */
+
+	.section-results {
+		background-image: url(images/headphones_hero_2.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		color: var(--color-white);
+		/* padding: 6rem 4rem; */
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		width: auto;
+		height: auto;
+		/* height: 10rem;
+		padding: 0;
+		position: relative; */
+	}
+
+	.section-results h2 {
+		color: var(--color-white);
+		font-size: var(--font-size-xlarge);
+		text-align: center;
+		font-weight: 600;
+		margin-top: 141px;
+	}
+
+	#results-p {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		color: var(--color-white);
+		font-size: var(--font-size-medium);
+		font-weight: 400;
+		width: 637px;
+	}
+
+	.pent-grid {
+		width: 100%;
+		margin: 2rem 0;
+		display: grid;
+		grid-template-rows: 100%;
+		grid-template-columns: 25% 25% 25% 25%;
+		text-align: center;
+	}
+
+
+	/* Responsive Design for Pentagon Grid ====== */
+
+
+	@media (max-width: 767px) {
+		.pent-grid {
+			grid-template-columns: 50% 50%;
+			grid-template-rows: 50% 50%;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.pent-grid {
+			grid-template-columns: 100%;
+			grid-template-rows: 25% 25% 25% 25%;
+		}
+	}
+
+	/* Contact Section =================================== */
+
+	.section-contact {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 100%;
+		flex-wrap: wrap;
+	}
+
+	.section-contact h1 {
+		text-align: center;
+		font-size: var(--font-size-xlarge);
+		font-weight: 600;
+		color: var(--color-navy);
+	}
+
+	.section-contact form {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		align-content: center;
+		/* padding: 1.5rem; */
+	}
+
+	.section-contact input {
+		width: 50%;
+		border: 0px solid transparent;
+		/* transition: border-color 0.2s ease; */
+		margin: 1rem 0;
+		height: 2rem;
+		color: var(--color-black);
+		font-size: var(--font-size-button);
+		position: relative;
+		box-sizing: border-box;
+	}
+
+	.input-label {
+		position: relative;
+	}
+
+	.section-contact input:focus,
+	.section-contact input:focus + .input-label {
+		outline: none;
+	}
+
+	.section-contact input::placeholder {
+		text-align: center;
+		color: var(--color-black);
+		font-size: var(--font-size-button);
+		transition: color 0.9s ease;
+	}
+
+	.section-contact input:focus::placeholder {
+		color: transparent;
+	}
+
+	.section-contact input:focus {
+		animation: draw-border 0.2s forwards;
+	}
+
+	@keyframes draw-border {
+		0% {
+			border-width: 0;
+			border-bottom-color: transparent;
+			border-left-color: transparent;
+			border-right-color: transparent;
+			border-top-color: transparent;
+		}
+		50%{
+			border-right-color:var(--color-primary);
+			border-bottom-color: var(--color-primary);
+			border-left-color: var(--color-primary);
+			border-top-color: var(--color-primary);
+			border-right-width: 2px;
+			border-left-width: 2px;
+			border-bottom-width: 2px;
+			border-top-width: 2px;
+
+		}
+		100% {
+			border-right-color:var(--color-primary);
+			border-bottom-color: var(--color-primary);
+			border-left-color: var(--color-primary);
+			border-top-color: var(--color-primary);
+			border-right-width: 4px;
+			border-left-width: 4px;
+			border-bottom-width: 4px;
+			border-top-width:4px;
+		}
+	}
+
+	#contact-button {
+		display: flex;
+		align-self: center;
+		box-shadow: none;
+		/* margin: 3rem auto; */
+    font-size: var(--font-size-btn);
+    background: var(--color-primary);
+    border: none;
+    padding: 1rem 2rem;
+    color: white;
+    font-weight: 700;
+    border-radius: 24px;
+    margin: 3rem auto;
+    cursor: pointer;
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    transition: opacity 0.2s ease;
+	}
+
+	#contact-button:hover, #contact-button:active {
+		opacity: 0.9;
+	}
+
+
+	/* Responsive Design for Form === */
+
+	@media (max-width: 767px) {
+		.section-contact input {
+			width: 75%;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.section-contact input {
+			width: 95%;
+		}
+	}
+
+	/* Footer ================================*/
+
+	.footer-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background-color: var(--color-navy);
+		height: 249px;
+		width: auto;
+	}
+	.footer-row {
+		margin: 45px 100px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		gap: 450px
+	}
+
+	/* .footer-headphones {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		margin-left: 20px;
+		margin-top: 20px;
+	}
+
+	.footer-socials {
+		display: flex;
+		justify-content: right;
+		margin-right: 200px;
+	} */
+
+	.footer-copyright {
+		display: flex;
+		flex-direction: column;
+		font-size: var(--font-size-small);
+		color: var(--color-white);
+		opacity: 0.35;
+		text-align: center;
+		/* margin-top: 30px; */
+		margin-bottom: 15px;
+	}
+
+	/* footer responsive design */
+
+	@media (max-width: 480px)
+	{
+		.footer-container {
+			padding: 3rem 4rem;
+		}
+	}
