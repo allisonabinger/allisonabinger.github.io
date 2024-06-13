@@ -1,143 +1,469 @@
-/* Fonts **********************/
-
-/* root vars ******************/
-
-:root {
-	--font-family-reddit: "Reddit Mono", sans-serif;
-	--font-family-mont: "Montserrat", sans-serif;
-	--font-family-poppins: "Poppins", sans-serif;
-	--font-family-abel: "Abel", sans-serif;
-	--font-family-nunito: "Nunito", sans-serif;
-	--font-family-eb: "EB Garamond", sans-serif;
-	--color-white: #fff;
-	
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
+
+/* Remove default margin and padding and reset fonts */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core body defaults */
 body {
-	color: black !important;
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "EB Garamond", serif;
+  margin: auto;
 }
 
-body h1 {
-	font-size: 1.5rem;
+/*************** Hero Section */
+
+.button:hover a {
+    opacity: 95%;
+    color: #fbcdcd;
 }
 
-body h2 {
-	font-size: 1.25rem;
+.button a:hover {
+    text-decoration: none;
+    color: #fbcdcd;
 }
 
-.font1 {
-	font-family: var(--font-family-reddit);
+.maintenance-flag {
+    font-family: 'Source Code Pro', serif;
+    font-size: 1rem;
+    font-weight: 300;
+    color: #fbcdcd;
+    background-color: #922626;
 }
 
-.font2 {
-	font-family: var(--font-family-mont);
+.hidden {
+    display: none;
 }
 
-.font3 {
-	font-family: var(--font-family-poppins);
+header {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8rem 2rem 8rem;
+    margin: auto;
+    font-family: 'Source Code Pro', sans-serif;
+    text-align: center;
 }
 
-.font4 {
-	font-family: var(--font-family-abel);
+.hero-info-title .title {
+    font-size: 3rem;
+    font-weight: 300;
+    /* text-align: center; */
 }
 
-.font5 {
-	font-family: var(--font-family-nunito);
+.hero-info-title .subtitle {
+    font-size: 1.5rem;
+    font-weight: 200;
+    /* text-align: center; */
 }
 
-.font6 {
-	font-family: var(--font-family-eb);
+/* header div {
+    height: auto;
+} */
+
+.headshot img {
+    width: 35rem
 }
 
-
-.row {
-	padding: 1.5rem;
-	margin: 1.5rem;
+.hero-section .row {
+    padding: 0
 }
 
-.box {
-	margin-left: 1rem;
-	margin-right: 1rem;
-	border-radius: 15%;
+.hero-section {
+    width: 100%;
 }
 
-.row-title {
-	padding: none;
-	margin-bottom: 1.5rem;
-	background-color: black;
-	color: white;
+.hero-info-links a {
+    text-decoration: none;
+    color: #000;
+
 }
 
-.bold	{
-	font-weight: 600;
+.hero-info-connect button {
+    font-size: 1.5rem;
+    background-color: #000;
+    padding: .5rem 3rem .5rem;
+    border-radius: 10px;
 }
 
-.italic {
-	font-style: italic;
+.hero-info-connect button:hover {
+    background-color: #fbcdcd;
 }
 
-.light {
-	font-weight: 100;
+.hero-info-connect button:hover a {
+    color: #000;
 }
 
-/* Row 1 Colors */
-.row1 .box1 {
-	background-color: #073a2d;
-	color: #f8ba6b;
+.hero-info-connect a {
+    color: #fff;
 }
 
-.row1 .box2 {
-	background-color: #3c5349;
-	color: #f8f4e3;
+.hero-info-link svg {
+   width: 5rem;
+   height: 3rem;
 }
 
-.row1 .box3 {
-	background-color: #cae7b9;
-	color: black;
+.hero-info-links svg:hover path {
+    fill: #fbcdcd;
+ }
+
+
+/* Make images easier to work with */
+.orbit img {
+  max-width: 100%;
+  display: block;
 }
 
-.row1 .box4 {
-	background-color: #002317;
-	color: wheat;
+/*************** Tech Stack Section */
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+:root {
+  --green-light: hsl(123deg, 47%, 74%);
+  --green-dark: #2e7f32;
+  --blue-light: hsl(210deg, 47%, 74%);
+  --blue-dark: #2e577f;
+  --orange-light: hsl(34deg, 93%, 77%);
+  --orange-dark: #b66a07;
+  --purple-light: hsl(231deg, 44%, 76%);
+  --purple-dark: #334084;
+  --yellow-light: hsl(54deg, 76%, 79%);
+  --yellow-dark: #afa018;
+  --brown-light: hsl(20deg, 41%, 69%);
+  --brown-dark: #68402c;
+  --red-light: hsl(0deg, 59%, 76%);
+  --red-dark: #922626;
+  --pink-light: hsl(295deg, 42%, 72%);
+  --pink-dark: #6e2f74;
+  --white-light: hsl(0deg, 0%, 100%);
+  --white-dark: #999999;
 }
 
-/* Row 2 Colors */
-
-.row2 .box1 {
-	background-color: #e88c7A;
-	color: #FFEDD9;
+.techstack {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.explore-title {
+    justify-content: start;
+    font-family: 'Source Code Pro', sans-serif;
+    font-weight: 300;
+    font-size: 2rem;
+    /* white-space: nowrap; */
 }
 
-.row2 .box2 {
-	background-color: #3f220f;
-	color: wheat;
+.buttonSelect {
+    font-size: 1rem;
+    text-decoration: none;
+    font-family: 'Source Code Pro', sans-serif;
+    font-weight: 300;
 }
 
-.row2 .box3 {
-	background-color: #feb95f;
-	color: #8f5c38;
+.nav-pills .active a {
+    background-color: #fbcdcd;
 }
 
-.row2 .box4 {
-	background-color: #d9cab3;
-	color: #832232;
+.buttonSelect button {
+    background-color: #fbcdcd;
+    border: none;
+    border-radius: 10px;
+
 }
 
-.row3 .box1 {
-	background-color: #b49082;
-	color: #f5fbef;
+.resume button:hover {
+    background-color: #fbcdcd;
 }
 
-.row3 .box2 {
-	background-color: #659b5e;
-	color: #fff;
+.resume button:hover a {
+    color: #000;
 }
 
-.row3 .box3 {
-	background-color: #1a3321;
-	color: #faf0ca;
+.nav-link.active {
+    background-color: #ffd5d5 !important;
 }
 
-.row3 .box4 {
-	background-color: #facfad;
-	color: #606c38;
+.nav-link.active {
+    color: #000 !important;
+}
+
+button:hover {
+    opacity: 75%;
+}
+
+button::active {
+    border: none;
+
+}
+
+.container-orbit {
+  display: grid;
+  min-height: 100vh;
+  place-content: center;
+  overflow:;
+  margin: auto;
+  width: 100%;
+}
+
+.orbit {
+    display: none;
+}
+
+.orbit.active {
+    display: block;
+    --size: 12rem;
+    --speed: 120s;
+}
+
+.orbit .center-image {
+  width: var(--size);
+  display: flex;
+  z-index: 10;
+}
+.orbit .center-image h1 {
+  position: absolute;
+  transition: opacity 500ms;
+}
+.orbit .center-image h1:not(:first-child):hover {
+  opacity: 0;
+}
+.orbit ul {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: auto;
+  position: relative;
+  list-style: none;
+  /* --icon-bg: var(--green-light);
+  --text-bg: var(--green-dark); */
+  transform-origin: center;
+  animation: orbit var(--speed) linear infinite;
+}
+.orbit ul:hover {
+  animation-play-state: paused;
+  --orbit-play-state: paused;
+}
+.orbit li {
+  /* --icon-bg: pink;
+  --text-bg: blue; */
+  position: absolute;
+  width: 6rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  color: var(--white-light);
+  text-align: center;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.orbit li:hover {
+  --throb-play-state: paused;
+}
+.orbit li:hover img {
+    opacity: .25;
+}
+.orbit li:nth-child(1) {
+  --throb-delay: 0ms;
+}
+.orbit li:nth-child(2) {
+  --throb-delay: 500ms;
+}
+.orbit li:nth-child(3) {
+  --throb-delay: 1000ms;
+}
+.orbit li:nth-child(4) {
+  --throb-delay: 1500ms;
+}
+.orbit li:nth-child(5) {
+  --throb-delay: 2000ms;
+}
+.orbit li:nth-child(6) {
+  --throb-delay: 2500ms;
+}
+.orbit li:nth-child(7) {
+  --throb-delay: 3000ms;
+}
+.orbit li:nth-child(8) {
+  --throb-delay: 3500ms;
+}
+.orbit li > * {
+  width: auto;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  border-radius: inherit;
+  position: absolute;
+  animation: orbit var(--speed) linear reverse infinite, throb 1s var(--throb-delay) ease-in-out infinite alternate;
+  animation-play-state: var(--orbit-play-state, running), var(--throb-play-state, running);
+}
+.orbit li > .placeholder {
+  display: none;
+}
+.orbit li > p {
+    font-weight: 300;
+  /* background: var(--text-bg); */
+  margin-top: 0rem;
+  padding-top: 0rem;
+  transition: opacity 200ms;
+  opacity: 0;
+  color: #000000;
+  align-self: center;
+  font-size: 16px;
+  text-align: center;
+}
+.orbit li:hover > p {
+  opacity: 1;
+  font-weight: 300;
+  font-size: 16px;
+}
+.orbit li:nth-child(1) {
+  /* --icon-bg: var(--blue-light);
+  --text-bg: var(--blue-dark); */
+  transform: translate(15rem, 0rem);
+}
+.orbit li:nth-child(2) {
+  /* --icon-bg: var(--green-light);
+  --text-bg: var(--green-dark); */
+  transform: translate(10rem, 10rem);
+}
+.orbit li:nth-child(3) {
+  /* --icon-bg: var(--pink-light);
+  --text-bg: var(--pink-dark); */
+  transform: translate(0, 15rem);
+}
+.orbit li:nth-child(4) {
+  /* --icon-bg: var(--red-light);
+  --text-bg: var(--red-dark); */
+  transform: translate(-10rem, 10rem);
+}
+.orbit li:nth-child(5) {
+  /* --icon-bg: var(--brown-light);
+  --text-bg: var(--brown-dark); */
+  transform: translate(-15rem, 0rem);
+}
+.orbit li:nth-child(6) {
+  /* --icon-bg: var(--yellow-light);
+  --text-bg: var(--yellow-dark); */
+  transform: translate(-10rem, -10rem);
+}
+.orbit li:nth-child(7) {
+  /* --icon-bg: var(--purple-light);
+  --text-bg: var(--purple-dark); */
+  transform: translate(0, -15rem);
+}
+.orbit li:nth-child(8) {
+  /* --icon-bg: var(--orange-light);
+  --text-bg: var(--orange-dark); */
+  transform: translate(10rem, -10rem);
+}
+
+@keyframes orbit {
+  100% {
+    rotate: 1turn;
+  }
+}
+@keyframes hold-position {
+  100% {
+    rotate: -1turn;
+  }
+}
+@keyframes throb {
+  100% {
+    scale: 1.05;
+  }
+}
+/* Changing Display based on button selection */
+
+
+/*# sourceMappingURL=style.css.map */
+
+/************** Projects Section */
+
+.about-section h1 {
+    justify-content: start;
+    font-family: 'Source Code Pro', serif;
+    font-weight: 300;
+    font-size: 2.5rem;
+}
+.resume button {
+    background-color: #fff;
+    white-space: nowrap;
+    color: #000;
+    padding: 1rem 2rem 1rem;
+}
+
+.resume button a {
+    color: #000;
+    font-family: 'Source Code Pro', serif;
+}
+
+.projects .row {
+    width: 100%;
+    text-align: center;
+    
+}
+.about-paragraph p {
+    text-align: start;
+    font-family: 'Source Code Pro', serif;
+    font-size: 1rem;
+    font-weight: 100;
+}
+
+.projects button {
+    background-color: #fff;
+    white-space: nowrap;
+    color: #000;
+}
+
+.projects button a {
+    color: #000;
+    font-family: 'Source Code Pro', serif;
+}
+
+.projects button:hover {
+
+}
+
+footer {
+    background-color: #fbcdcd;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 500;
 }
