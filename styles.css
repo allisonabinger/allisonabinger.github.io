@@ -51,12 +51,24 @@ body {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
-header {
+.header {
     width: 100%;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8rem 2rem 8rem;
+    margin: auto;
+    font-family: 'Source Code Pro', sans-serif;
+    text-align: center;
+}
+
+.projects-header {
+    width: 100%;
+    height: 25vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,7 +95,7 @@ header {
 } */
 
 .headshot img {
-    width: 35rem
+    width: 25rem
 }
 
 .hero-section .row {
@@ -212,7 +224,6 @@ header {
 .resume button:hover a {
     color: #000;
 }
-
 .nav-link.active {
     background-color: #ffd5d5 !important;
 }
@@ -224,12 +235,10 @@ header {
 button:hover {
     opacity: 75%;
 }
-
 button::active {
     border: none;
 
 }
-
 .container-orbit {
   display: grid;
   min-height: 100vh;
@@ -416,7 +425,7 @@ button::active {
 
 /************** Projects Section */
 
-.about-section h1 {
+.about-section h1, .about-section h3 {
     justify-content: start;
     font-family: 'Source Code Pro', serif;
     font-weight: 300;
@@ -439,6 +448,28 @@ button::active {
     text-align: center;
     
 }
+
+.projects-section {
+    justify-content: center;
+}
+
+.demo {
+    padding: 0 2rem 4rem 2rem;
+}
+
+.projects-section h1{
+    justify-content: start;
+    font-family: 'Source Code Pro', serif;
+    font-weight: 300;
+    font-size: 2.5rem;
+}
+.projects-section h3 {
+    justify-content: start;
+    font-family: 'Source Code Pro', serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+}
+
 .about-paragraph p {
     text-align: start;
     font-family: 'Source Code Pro', serif;
@@ -466,4 +497,18 @@ footer {
     color: white;
     font-size: 1.25rem;
     font-weight: 500;
+}
+
+#desktop-flag {
+    display: none;
+}
+
+/* Show the maintenance banner only on small screens */
+@media (max-width: 1075px) {
+    #desktop-flag {
+        display: block;
+    }
+    .non-mobile {
+        display: none;
+    }
 }
