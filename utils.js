@@ -24,23 +24,28 @@ function changeOrbit(divID) {
     }
 }
 
-function smallScreen(threshhold) {
-    const sections = document.querySelectorAll('.non-mobile');
+// function smallScreen(threshhold) {
+//     const sections = document.querySelectorAll('.non-mobile');
+//     const maintenanceBanner = document.querySelector('#desktop-flag');
     
-    function getViewport() {
-        if (window.innerWidth < threshhold) {
-            sections.forEach(section => section.classList.add('hidden'));
-            
-        } else {
-            sections.forEach(section => section.classList.remove('hidden'));
-        }
-    }
-    getViewport();
+//     function getViewport() {
+//         if (window.innerWidth < threshhold) {
+//             sections.forEach(section => section.classList.add('hidden'));
+//             if (maintenanceBanner) {
+//                 maintenanceBanner.classList.remove('hidden');
+//             }
+//         } else {
+//             sections.forEach(section => section.classList.remove('hidden'));
+//             if (maintenanceBanner) {
+//                 maintenanceBanner.classList.add('hidden');
+//             }
+//         }
+//     }
+//     getViewport();
 
-    window.addEventListener('resize', getViewport)
-}
+//     window.addEventListener('resize', getViewport);
+// }
 
 document.addEventListener('DOMContentLoaded', function(){
     changeOrbit('langapp-orbit');
-    smallScreen(1075)
 });
